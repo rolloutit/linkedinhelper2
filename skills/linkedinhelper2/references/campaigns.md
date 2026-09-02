@@ -299,7 +299,7 @@ upload the saved **HTML file** via the standard URL-upload function. Workaround 
 advanced): install an **auto-scroll extension**; **Chrome Developer Tools** → **Network** tab with
 **"Disable cache"** + **"Preserve log"**, filter **"Fetch/XHR"**, then filter for
 **`voyagerMessagingGraphQL`**; scroll all chats; **export the HAR file**, rename it with a **`.txt`**
-extension, **replace `\\"` with spaces** in a text editor, upload the modified file.
+extension, **replace `\\\"` with spaces** in a text editor, upload the modified file.
 Source: https://support.linkedhelper.com/hc/en-us/articles/28438859259282-How-to-collect-profiles-from-unsupported-pages
 
 ## 6. Adding profiles: all six methods
