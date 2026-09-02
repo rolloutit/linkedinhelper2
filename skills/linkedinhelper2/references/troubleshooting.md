@@ -470,7 +470,7 @@ fe80::1%lo0     localhost
 ```
 **Fix: Windows**
 1. Firewall: Start → search **Windows Defender Firewall** → ensure it is **enabled** → **Advanced settings** → **Inbound rules** → **"select all rules with 'linked-helper.exe' name and delete them"**.
-2. Hosts: run **Notepad as administrator** → File → Open → `C:\\Windows\\System32\\drivers\\etc` → set file type to **"All files"** → open `hosts` → add the four entries → File → Save.
+2. Hosts: run **Notepad as administrator** → File → Open → `C:\Windows\System32\drivers\etc` → set file type to **"All files"** → open `hosts` → add the four entries → File → Save.
 **Fix: Ubuntu**
 1. Firewall: `sudo ufw status`. If inactive, whitelist ports **before** enabling:
    ```
@@ -494,7 +494,7 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/360016524820-Linked-H
 1. Antivirus false positive → **"temporarily disable anti-viruses before installing"** (see B12.1).
 2. Run the installer **as administrator**.
 3. Free space on C: to at least 3 GB; apply KB4457144 on Windows 7 x64.
-**If that fails**: send support the setup logs from `C:\\%userprofile%\\AppData\\Local\\SquirrelTemp\\`. Navigate there in File Explorer, or click **"Open Setup Log"** if the popup appears during install.
+**If that fails**: send support the setup logs from `C:\%userprofile%\AppData\Local\SquirrelTemp\`. Navigate there in File Explorer, or click **"Open Setup Log"** if the popup appears during install.
 Source: https://support.linkedhelper.com/hc/en-us/articles/360015656279-Linked-Helper-installation-fails-on-Windows
 
 ## B7.3. SYMPTOM: macOS install errors
@@ -544,7 +544,7 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/19176827188370-Linked
 **Fix: if the browser works (Solutions #1–#5)**
 1. **VPN/proxy:** install a free VPN (Windscribe / TouchVPN) if you have none and restart the launcher; **or** disable the existing VPN and restart; **or** disable system-wide proxy settings.
 2. **Security software:** temporarily disable antivirus and firewall. **Kaspersky specifically:** disable **Network ports monitoring for port 443**.
-3. **Clear launcher cache:** in File Explorer go to `%appdata%\\linked-helper\\Partitions`, rename **`linked-helper-launcher`** → **`linked-helper-launcher-old`**, then re-login.
+3. **Clear launcher cache:** in File Explorer go to `%appdata%\linked-helper\Partitions`, rename **`linked-helper-launcher`** → **`linked-helper-launcher-old`**, then re-login.
 4. **Synchronise time:** verify timezone and sync system time with an internet time server.
 5. **Hosts file:** confirm the four localhost entries from B7.1 exist.
 **Fix: if the browser also fails (Solutions #6–#8)**
@@ -591,9 +591,9 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/360017136120-I-get-Fa
 Source: https://support.linkedhelper.com/hc/en-us/articles/360016353900-How-to-backup-restore-your-Linked-Helper-data
 
 ## B9.3. SYMPTOM: disk full / need to relocate the user-data folder
-**Likely causes**: the local database grew on the system drive. Default locations (full table in `references/plans-and-platform.md`): Windows `C:\\Users\\{username}\\AppData\\Roaming\\linked-helper` · macOS `/Users/{username}/Library/Application Support/linked-helper/` · Linux `/home/{username}/.config/linked-helper/`.
+**Likely causes**: the local database grew on the system drive. Default locations (full table in `references/plans-and-platform.md`): Windows `C:\Users\{username}\AppData\Roaming\linked-helper` · macOS `/Users/{username}/Library/Application Support/linked-helper/` · Linux `/home/{username}/.config/linked-helper/`.
 **Checks**: free space on the drive holding the default path (Windows installs also need ≥3 GB on C:, B7.2) · **close all Linked Helper windows first, on every platform.**
-**Fix: Windows**. Create the new folder (e.g. `D:\\linked-helper`) → move existing data from the AppData folder into it → Start → **"Edit the system environment variables"** → **Advanced** tab → **"Environment Variables…"** → add a **system** variable, Name **`LH_APP_USER_DATA_PATH`**, Value = new path (e.g. `D:\\linked-helper`) → restart Linked Helper.
+**Fix: Windows**. Create the new folder (e.g. `D:\linked-helper`) → move existing data from the AppData folder into it → Start → **"Edit the system environment variables"** → **Advanced** tab → **"Environment Variables…"** → add a **system** variable, Name **`LH_APP_USER_DATA_PATH`**, Value = new path (e.g. `D:\linked-helper`) → restart Linked Helper.
 **Fix: macOS**. Finder → **"Go to Folder"** → `/Users/{username}/Library/Application Support/` → move the **`linked-helper`** folder to the new location → create/edit **`setENV.plist`** in `/Users/{username}/Library/LaunchAgents/` → add `launchctl setenv LH_APP_USER_DATA_PATH /your/new/path` → reboot.
 **Fix: Ubuntu**. `sudo nano /etc/environment` → add `LH_APP_USER_DATA_PATH="/your/new/path"` → Ctrl+O to save, Ctrl+X to exit → move the data folder → restart Ubuntu.
 **If that fails**: take a backup (B9.1) before any further attempt, then escalate.
@@ -716,7 +716,7 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/360015376519-Is-Linke
 - The **verbatim error string** and which section of this file you already worked through
 - Screenshots or related files (backups, CSV files)
 - Screen recordings of the faulty process
-- For install failures on Windows, the setup logs from `C:\\%userprofile%\\AppData\\Local\\SquirrelTemp\\`
+- For install failures on Windows, the setup logs from `C:\%userprofile%\AppData\Local\SquirrelTemp\`
 **Capture shortcuts**
 
 | | Screenshot | Screen recording |
