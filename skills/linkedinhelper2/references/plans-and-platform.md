@@ -1,4 +1,4 @@
-# Plans, Credits, Platform and Data Management — Linked Helper 2
+# Plans, Credits, Platform and Data Management: Linked Helper 2
 
 Commercial and platform reference for `SKILL.md` §2 and §8: prices, gating, credits, OS/hardware,
 workspaces, VPS, folder paths, backup. Symptom-driven diagnostics are in
@@ -14,9 +14,9 @@ workspaces, VPS, folder paths, backup. Symptom-driven diagnostics are in
 
 1. [Pricing](#1-pricing)
 2. [Licence ↔ LinkedIn account mapping](#2-licence--linkedin-account-mapping)
-3. [Standard vs Pro — the gating table](#3-standard-vs-pro--the-gating-table)
+3. [Standard vs Pro: the gating table](#3-standard-vs-pro-the-gating-table)
 4. [Credits](#4-credits)
-5. [Local vs cloud storage — how to choose](#5-local-vs-cloud-storage--how-to-choose)
+5. [Local vs cloud storage: how to choose](#5-local-vs-cloud-storage-how-to-choose)
 6. [Platform support and sizing](#6-platform-support-and-sizing)
 7. [Workspaces and multi-account operation](#7-workspaces-and-multi-account-operation)
 8. [Proxies at the account level](#8-proxies-at-the-account-level)
@@ -28,11 +28,11 @@ workspaces, VPS, folder paths, backup. Symptom-driven diagnostics are in
 
 ## 1. Pricing
 
-Two product variants — **Local-based storage** and **Cloud-based storage** — each in three tiers:
+Two product variants, **Local-based storage** and **Cloud-based storage**, each in three tiers:
 Trial / Standard / Pro. Quoted figures are **per month on a prepaid 3/6/12-month term**, not
 monthly-cancellable prices.
 
-### 1.1 Local-based storage — USD, verified 2026-09-01
+### 1.1 Local-based storage: USD, verified 2026-09-01
 
 | Term | Standard /mo | Standard total | Pro /mo | Pro total |
 |---|---|---|---|---|
@@ -45,7 +45,7 @@ Per-month figures from `/pricing`; bolded per-term totals are published by the h
 exactly (13.33×3=40, 8.25×12=99, 40×3=120, 24.75×12=297). `[LH-CLAIM]`
 Source: https://www.linkedhelper.com/pricing · https://support.linkedhelper.com/hc/en-us/articles/360016768020-Licensing-Standard-and-PRO-licenses-Pricing-and-discounts
 
-### 1.2 Cloud-based storage — USD, verified 2026-09-01
+### 1.2 Cloud-based storage: USD, verified 2026-09-01
 
 | Term | Standard /mo | Standard total | Pro /mo | Pro total |
 |---|---|---|---|---|
@@ -54,12 +54,12 @@ Source: https://www.linkedhelper.com/pricing · https://support.linkedhelper.com
 | 6 months (−33%) | $20.00 | $120.00 `[UNVERIFIED]` | $40.00 | $240.00 `[UNVERIFIED]` |
 | 12 months (−45%) | $16.50 | $198.00 `[UNVERIFIED]` | $33.00 | $396.00 `[UNVERIFIED]` |
 
-Only per-month figures are published; **cloud per-term totals are not displayed anywhere** — those
+Only per-month figures are published; **cloud per-term totals are not displayed anywhere**: those
 above are arithmetic and marked `[UNVERIFIED]`. Read them off the checkout page before quoting.
 Cloud runs ~2× local for Standard, ~1.33× for Pro. USD only; no EUR/GBP pricing → `[UNVERIFIED]`.
 Source: https://www.linkedhelper.com/pricing
 
-### 1.3 Bulk licence discounts (single invoice) — verified 2026-09-01
+### 1.3 Bulk licence discounts (single invoice): verified 2026-09-01
 
 | Licences on one invoice | Discount |
 |---|---|
@@ -74,11 +74,11 @@ Stacks on the term discount; the only documented volume mechanism. No refund pol
 discount route is published → `[UNVERIFIED]` `[LH-CLAIM]`.
 Source: https://support.linkedhelper.com/hc/en-us/articles/360016768020-Licensing-Standard-and-PRO-licenses-Pricing-and-discounts
 
-### 1.4 Trial — verified 2026-09-01
+### 1.4 Trial: verified 2026-09-01
 
 - **14 days**, marketed as "14-Day Full Feature Access", "Explore Standard & Pro capabilities",
   "24/7 Support".
-- **No payment card required** — the homepage repeats "100% Free. No card."
+- **No payment card required**: the homepage repeats "100% Free. No card."
 - **Trial credit allowance is blank** in both credit rows of the `/pricing` table.
   `CONFLICT:` `/features/data-enricher` implies **~1,400 Data credits over the 14 days**; `/pricing`
   shows **no figure**. Treat 1,400 as `[UNVERIFIED]`; have the user read `Billing` → `Data Credits`
@@ -103,16 +103,16 @@ Source: https://www.linkedhelper.com/pricing · https://support.linkedhelper.com
 Path: Launcher → `Licenses` → hover the licence record → `Attach to LinkedIn account` → select the
 instance → `Assign`.
 
-Two operating models: **single licence, sequential** — one licence reattached by hand across
-several accounts, so "accounts can't work simultaneously" and only the attached instance runs; or
-**multiple licences, simultaneous** — one licence per instance, all accounts running at once with no
-reattaching.
+Two operating models: **single licence, sequential** (one licence reattached by hand across
+several accounts, so "accounts can't work simultaneously" and only the attached instance runs); or
+**multiple licences, simultaneous** (one licence per instance, all accounts running at once with no
+reattaching).
 
 Two hard bindings: **an instance is permanently bound to the first LinkedIn account logged in
-through it** (the licence moves, the instance does not — a wrongly-created instance cannot be
+through it** (the licence moves, the instance does not: a wrongly-created instance cannot be
 repurposed); and **you cannot open two Launchers on one PC**, plus **"You won't be able to open the
 same LinkedIn account under one and the same Linked Helper account from several machines
-simultaneously"** — the same account under *different* Linked Helper accounts on several machines is
+simultaneously"**. The same account under *different* Linked Helper accounts on several machines is
 "strongly not recommended". Switching a licence does not move data (local per machine); moving
 machines means a backup/restore (§10.3). `[LH-CLAIM]`
 Source: https://support.linkedhelper.com/hc/en-us/articles/360015219400-How-to-manage-multiple-LinkedIn-accounts · https://support.linkedhelper.com/hc/en-us/articles/360016336859-Can-I-use-Linked-Helper-2-on-several-PCs · https://support.linkedhelper.com/hc/en-us/articles/4408390475154-Errors-when-adding-LinkedIn-account
@@ -126,17 +126,17 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/360015219400-How-to-m
 2. **Use Workspaces as the management layer** (§7): billing, integrations, proxies and a Data-credit
    vault sit in the workspace with role-based permissions; licences/assets are reassignable when
    staff change. LinkedIn accounts are the "operational layer".
-3. **White Label Customization** — agencies can "replace Linked Helper brand" with their own.
+3. **White Label Customization**: agencies can "replace Linked Helper brand" with their own.
 4. **Cross-Account Campaign Cloning** and **Direct Lead Mobility** are cloud-variant only
    ("Available with Cloud DB"). Maximum workspaces/seats/accounts: not stated → `[UNVERIFIED]`.
 
 Source: https://www.linkedhelper.com/features/workspaces · https://www.linkedhelper.com/pricing
 
-## 3. Standard vs Pro — the gating table
+## 3. Standard vs Pro: the gating table
 
 ### 3.1 The single mechanism: a 20-per-24h cap on "advanced actions"
 
-Standard is not feature-locked out of most things — it is **rate-capped at 20 actions per 24 hours**
+Standard is not feature-locked out of most things: it is **rate-capped at 20 actions per 24 hours**
 on a set of "advanced" activities. Marketing calls this **"Limited advanced actions (20/day)"**
 (Standard) vs **"Unlimited daily actions"** (Pro).
 
@@ -159,14 +159,14 @@ on a set of "advanced" activities. Marketing calls this **"Limited advanced acti
 | Like and comment posts | ✓ | 20/day | Unlimited |
 | Auto-tag under "Boost post" | ✓ | 20/day | Unlimited |
 
-`CONFLICT:` the lists disagree on scope — the help center caps `Message to group members`,
+`CONFLICT:` the lists disagree on scope: the help center caps `Message to group members`,
 messaging-with-images and `Send person to external CRM`, which `/pricing` does not name, while
 `/pricing` adds a blanket **"Messages/day limit 20/day"** (capping *all* messaging) plus "Auto-tag
 under Boost post". Rule: **assume the union is capped on Standard**; volume on anything in either
 list means Pro, not a workaround. `[LH-CLAIM]`
 Source: https://support.linkedhelper.com/hc/en-us/articles/360016768020-Licensing-Standard-and-PRO-licenses-Pricing-and-discounts · https://www.linkedhelper.com/pricing
 
-### 3.2 What Pro adds beyond removing the cap — verified 2026-09-01
+### 3.2 What Pro adds beyond removing the cap: verified 2026-09-01
 
 | Capability | Standard | Pro |
 |---|---|---|
@@ -190,10 +190,10 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/360016768020-Licensin
 
 Source: https://www.linkedhelper.com/pricing · https://www.linkedhelper.com/features/data-export · https://www.linkedhelper.com/features/scrape-messaging-history · https://www.linkedhelper.com/features/data-enricher · https://support.linkedhelper.com/hc/en-us/articles/360016768020-Licensing-Standard-and-PRO-licenses-Pricing-and-discounts · https://support.linkedhelper.com/hc/en-us/articles/9003176158226-Inbox-plug-in
 
-### 3.3 Not gated at all — ✓ on Trial, Standard and Pro alike
+### 3.3 Not gated at all: ✓ on Trial, Standard and Pro alike
 
 Invite connections · message follow-ups and sequences · reply detection · advanced conversation
-filtering · InMails · `Message to LinkedIn group members` (per `/pricing`; the help center caps it —
+filtering · InMails · `Message to LinkedIn group members` (per `/pricing`; the help center caps it:
 §3.1 CONFLICT) · AI Personalized Messages · AI Message Generator · AI Text Editor · AI Replies ·
 AI Comments · AI ICP Detection · unlimited campaigns · custom campaign builder · performance
 dashboard · smart custom settings · working-hours settings · advanced message template editor ·
@@ -205,7 +205,7 @@ support · profile/org page search · post-engagement lists · 1st-level connect
 pages · custom Sales Navigator lists · recruiter projects · pending-invitations list · direct
 profile pages · LinkedIn group members · CSV import. `[LH-CLAIM]`
 
-"Unlimited campaigns" is a licence statement, not a safety statement — the limits in
+"Unlimited campaigns" is a licence statement, not a safety statement: the limits in
 `references/limits-safety.md` bind regardless of tier. **Pro removes the licence cap, not
 LinkedIn's**: "Linked Helper cannot remove or bypass limits imposed by LinkedIn".
 Source: https://www.linkedhelper.com/pricing · https://www.linkedhelper.com/features/smart-invitations
@@ -215,7 +215,7 @@ Source: https://www.linkedhelper.com/pricing · https://www.linkedhelper.com/fea
 Two independent, non-interchangeable currencies: **Data credits** (enrichment) and **AI credits**
 (generation). Both are held per workspace; balance in Launcher → `Billing` → `Data Credits`.
 
-### 4.1 Included Data credits — verified 2026-09-01
+### 4.1 Included Data credits: verified 2026-09-01
 
 `/pricing` presents Data credits as **flat per month regardless of term**: Standard **620/mo**, Pro
 **3,100/mo**. The help center instead publishes per-term totals included with the licence:
@@ -228,13 +228,13 @@ Two independent, non-interchangeable currencies: **Data credits** (enrichment) a
 
 `CONFLICT: 6- and 12-month Data-credit totals.` Help center gives 3,660 / 7,320 (Standard) and
 18,300 / 36,600 (Pro); `/features/data-enricher` gives annualised **7,440** and **37,200** (= 620×12,
-3,100×12), consistent with flat-per-month. Gap = 120 Standard / 600 Pro per year — quote the
+3,100×12), consistent with flat-per-month. Gap = 120 Standard / 600 Pro per year: quote the
 **lower** help-center figure when sizing an enrichment project and have the user read the real
 balance in `Billing` → `Data Credits`. **Cloud vs local:** `/pricing` indicates cloud allowances
 **match** local; no cloud Data-credit uplift is documented → `[UNVERIFIED]`.
 Source: https://support.linkedhelper.com/hc/en-us/articles/13201238845714-Linked-Helper-Data-Credits · https://www.linkedhelper.com/pricing · https://www.linkedhelper.com/features/data-enricher
 
-### 4.2 Included AI credits — verified 2026-09-01
+### 4.2 Included AI credits: verified 2026-09-01
 
 AI credits **scale with term length** (unlike Data credits). Both sources agree here.
 
@@ -246,12 +246,12 @@ AI credits **scale with term length** (unlike Data credits). Both sources agree 
 The `/pricing` headline table shows only the 1-month values (Standard 250, Pro 500).
 
 `CONFLICT: claimed cloud AI-credit uplift.` `/features/email-finder` claims "Cloud versions include
-higher AI credits (250→650, 500→1,275 depending on billing cycle)" — but those are **exactly the
+higher AI credits (250→650, 500→1,275 depending on billing cycle)", but those are **exactly the
 3-month local figures**, i.e. a term effect mislabelled as a cloud benefit, and `/pricing` shows
-cloud = local. **A cloud AI-credit uplift is `[UNVERIFIED]`** — never sell cloud on credit volume.
+cloud = local. **A cloud AI-credit uplift is `[UNVERIFIED]`**: never sell cloud on credit volume.
 Source: https://support.linkedhelper.com/hc/en-us/articles/35911233008914-Linked-Helper-AI-credits · https://www.linkedhelper.com/pricing · https://www.linkedhelper.com/features/email-finder
 
-### 4.3 Data-credit consumption per operation — verified 2026-09-01
+### 4.3 Data-credit consumption per operation: verified 2026-09-01
 
 Cost per **successful** retrieval: **Email / find profile email = 1 credit per profile** (1 credit
 even if several emails come back) · **Phone number = 10 credits per search** · Social & Messaging =
@@ -264,7 +264,7 @@ Which actions spend them: "LH Data Enrichment option is available in the **Find 
 successful searches**"; the help center says "**Data Enrichment charges per request regardless of
 prior data**" and only **Find Profile Emails** charges "only on successful email discovery". Budget
 pessimistically: `Data Enrichment` = cost × profiles **attempted**, `Find Profile Emails` = cost ×
-successes. Phone lookups at 10 credits are where budgets die — a 620-credit Standard month is
+successes. Phone lookups at 10 credits are where budgets die: a 620-credit Standard month is
 **62 phone lookups** or **620 emails**.
 
 Source: https://support.linkedhelper.com/hc/en-us/articles/13201238845714-Linked-Helper-Data-Credits · https://www.linkedhelper.com/features/data-enricher · https://www.linkedhelper.com/features/email-finder
@@ -278,12 +278,12 @@ and grammar/editing functions.
 
 **Per-operation rate is not published** beyond "one credit for every processed profile"; the
 marketing pages publish no rate at all → `[UNVERIFIED]`. Never compute an AI-credit budget as if
-the rate were known — give the mechanism (every processed profile *and every regeneration* costs
+the rate were known: give the mechanism (every processed profile *and every regeneration* costs
 credits) and have the user watch the balance across a 50-profile test run. Model names are not
 disclosed → `[UNVERIFIED]`.
 Source: https://support.linkedhelper.com/hc/en-us/articles/35911233008914-Linked-Helper-AI-credits · https://www.linkedhelper.com/features/
 
-### 4.5 Top-ups — verified 2026-09-01
+### 4.5 Top-ups: verified 2026-09-01
 
 `/pricing` says both types "**Can be purchased separately if needed**" but publishes **no top-up
 prices**. The help center does:
@@ -296,8 +296,8 @@ prices**. The help center does:
 
 Source: https://support.linkedhelper.com/hc/en-us/articles/13201238845714-Linked-Helper-Data-Credits · https://support.linkedhelper.com/hc/en-us/articles/35911233008914-Linked-Helper-AI-credits · https://www.linkedhelper.com/pricing
 
-**Rollover and expiry — `[UNVERIFIED]`.** No rollover or expiry policy is stated on any page
-checked — whether unused monthly allowances carry over, and whether purchased packages expire, is
+**Rollover and expiry: `[UNVERIFIED]`.** No rollover or expiry policy is stated on any page
+checked: whether unused monthly allowances carry over, and whether purchased packages expire, is
 undocumented. Never tell a user credits do or
 do not roll over; point them at `Need help` → `Ask for support`. Also `[UNVERIFIED]`: refund policy,
 non-USD currencies, credit-package refunds.
@@ -305,10 +305,10 @@ Source: https://www.linkedhelper.com/pricing
 
 **External enrichment does not use LH credits.** Snov.io and Apollo.io enrichment run on **their
 own credit systems**, billed by them. A user with an Apollo/Snov key can bypass LH Data credits
-entirely for email discovery — see `references/integrations.md`.
+entirely for email discovery: see `references/integrations.md`.
 Source: https://www.linkedhelper.com/features/email-finder
 
-## 5. Local vs cloud storage — how to choose
+## 5. Local vs cloud storage: how to choose
 
 **This is about where the lead database lives, not where the app runs.** In both variants **actions
 execute locally on the machine running LH2**. Safety Kit calls it a "Hybrid Cloud Architecture":
@@ -319,7 +319,7 @@ execute locally on the machine running LH2**. Safety Kit calls it a "Hybrid Clou
 | Lead DB / campaign data | local database file on that PC | synced to LH's cloud |
 | Where actions run | that PC | that PC (unchanged) |
 | Price (Standard, 12 mo) | $8.25/mo | $16.50/mo |
-| Backup | **your job** — manual `Backup` → `Export` (§10.3) | cloud backup included `[LH-CLAIM]` |
+| Backup | **your job**: manual `Backup` → `Export` (§10.3) | cloud backup included `[LH-CLAIM]` |
 | Access from a second machine | requires backup/restore file transfer | Team Sync / Global CRM & Inbox |
 | Cross-Account Campaign Cloning | not available | ✓ "Available with Cloud DB" |
 | Direct Lead Mobility | not available | ✓ "Available with Cloud DB" |
@@ -333,7 +333,7 @@ Decision rules:
   lead mobility are the only genuinely cloud-exclusive features documented.
 - **"Run campaigns while my laptop is closed"** → **neither variant solves this**; cloud syncs data,
   not execution. The documented answer is a VPS or dedicated server (§9).
-- **Credits are not a reason to pick cloud** — §4.2 CONFLICT.
+- **Credits are not a reason to pick cloud**: §4.2 CONFLICT.
 
 Source: https://www.linkedhelper.com/pricing · https://www.linkedhelper.com/features/safety-kit · https://www.linkedhelper.com/features/workspaces · https://support.linkedhelper.com/hc/en-us/articles/360015376519-Is-Linked-Helper-a-cloud-solution-Can-it-process-my-leads-while-PC-is-off
 
@@ -344,15 +344,15 @@ extension". Safety Kit: "No vulnerable browser extensions", "100% local browser 
 a Chrome extension", "Your session and cookies stay strictly local on your machine" `[LH-CLAIM]`.
 Source: https://www.linkedhelper.com/ · https://www.linkedhelper.com/features/safety-kit
 
-### 6.2 Supported OS and minimum versions — verified 2026-09-01
+### 6.2 Supported OS and minimum versions: verified 2026-09-01
 
 | OS | Minimum version | Architecture | Notes |
 |---|---|---|---|
 | **macOS** | **12.0 (Monterey) or higher** | Intel **and** Apple silicon (M1–M4) | download the build matching the chipset; check via `About This Mac` |
 | **Windows desktop** | **Windows 10 or higher** | **x86-64 only**, no ARM | older versions discontinued **Q1 2025** |
 | **Windows Server** | **Windows Server 2016 or higher** | **x86-64 only** | "Windows Server Core needs .NET Framework 4.6.2 to be installed" |
-| **Linux** | **Ubuntu 18.04 (Bionic Beaver) or higher** | **x86-64 only** | **GUI required** — "Gnome GUI is mandatory" |
-| **ChromeOS / Chromebook** | **unsupported** | — | — |
+| **Linux** | **Ubuntu 18.04 (Bionic Beaver) or higher** | **x86-64 only** | **GUI required**: "Gnome GUI is mandatory" |
+| **ChromeOS / Chromebook** | **unsupported** | | |
 
 Below macOS 12.0 or on an underpowered machine, the documented recommendation is a remote server.
 Two narrower lists exist elsewhere: the cloud article names only **Windows Server 2022/2019/2016**
@@ -362,7 +362,7 @@ fired` failure (`references/troubleshooting.md`). Installers: macOS Apple Silico
 number, release date and installer sizes are not published** → `[UNVERIFIED]`.
 Source: https://support.linkedhelper.com/hc/en-us/articles/360015376939-What-Linked-Helper-hardware-and-software-requirements-are · https://support.linkedhelper.com/hc/en-us/articles/360019288740-Can-Linked-Helper-run-on-my-Mac · https://www.linkedhelper.com/downloads · https://support.linkedhelper.com/hc/en-us/articles/360016233680-How-to-run-Linked-Helper-in-a-cloud-remote-server
 
-### 6.3 Minimum system requirements — verified 2026-09-01
+### 6.3 Minimum system requirements: verified 2026-09-01
 
 | Accounts running simultaneously | Free RAM | CPU real cores | Disk |
 |---|---|---|---|
@@ -375,11 +375,11 @@ multi-threading is supported"), plus +2 GB disk.
 
 `CONFLICT: single-account minimum RAM.` The same help-center article gives **2.5 GB free RAM** in
 the table but states a single-account minimum of **"4 GB RAM, 1 core, 4 GB disk"** in prose. Quote
-**4 GB** as the floor — the higher figure is the safe one to plan against.
+**4 GB** as the floor: the higher figure is the safe one to plan against.
 
 **Comfortable** (not minimum) spec: **"at least 8GB of RAM"**, fast **SSD 128 GB+**, **4+ cores**.
 VPS sizing is published separately and sits *above* the formula (§9.2), i.e. the docs recommend
-headroom. **Windows:** `/downloads` states files **must be stored on disk "C" only** — see the §13
+headroom. **Windows:** `/downloads` states files **must be stored on disk "C" only**: see the §13
 CONFLICT, since the user-data-folder article documents moving data to `D:\`.
 Source: https://support.linkedhelper.com/hc/en-us/articles/360015376939-What-Linked-Helper-hardware-and-software-requirements-are · https://www.linkedhelper.com/downloads · https://support.linkedhelper.com/hc/en-us/articles/360016233680-How-to-run-Linked-Helper-in-a-cloud-remote-server
 
@@ -420,7 +420,7 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/32476462157202-Linked
 ### 7.3 Adding multiple LinkedIn accounts
 
 Path: Launcher → `LinkedIn Accounts` → `Add new` → email + password → `Add`. The **password is
-optional** — omit it and the user logs in manually inside the instance, which is the safer default
+optional**: omit it and the user logs in manually inside the instance, which is the safer default
 for delegation. Licence models and the switching path: §2.2.
 Source: https://support.linkedhelper.com/hc/en-us/articles/360015219400-How-to-manage-multiple-LinkedIn-accounts
 
@@ -428,7 +428,7 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/360015219400-How-to-m
 
 | Shared across the account / workspace | Isolated per instance |
 |---|---|
-| **Plug-ins** — once enabled, a plug-in "becomes available for **any LinkedIn account instance** added to the Linked Helper account" (account-wide, not per-instance) | LinkedIn session and cookies |
+| **Plug-ins**: once enabled, a plug-in "becomes available for **any LinkedIn account instance** added to the Linked Helper account" (account-wide, not per-instance) | LinkedIn session and cookies |
 | Licences, Data credits, AI credits (workspace vault) | Campaigns, lists, queues |
 | Billing, orders, invoices | Local database file |
 | Proxies (defined once, assigned per account) | CRM records, Inbox, messaging history |
@@ -437,13 +437,13 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/360015219400-How-to-m
 
 Consequences and documented constraints:
 
-- **Installing a plug-in for one account installs it for all of them** — you cannot keep a client's
+- **Installing a plug-in for one account installs it for all of them**: you cannot keep a client's
   instance minimal that way, and "the feature isn't in my interface" is almost never per-instance.
-- **`Settings` → `Limits` are per instance** — a ramp on one account does not protect the others.
+- **`Settings` → `Limits` are per instance**: a ramp on one account does not protect the others.
 - **No cross-account exclusion list**; cross-account dedup is a manual export/import exercise
   (`references/campaigns.md` §8).
 - **Cross-Account Campaign Cloning** and **Direct Lead Mobility** are cloud-variant only.
-- **"Adding users without a license is allowed only for your first workspace"** — additional
+- **"Adding users without a license is allowed only for your first workspace"**: additional
   workspaces need at least one purchased licence before users can be added.
 - An instance is permanently bound to the first LinkedIn account logged in through it (§2.2).
 - Maximum workspaces, seats and accounts per workspace: `[UNVERIFIED]`.
@@ -454,7 +454,7 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/10522915555858-Plug-i
 
 Setup mechanics only. Every rule about *when a proxy is required for safety*, fraud scores, country
 matching, residential vs datacentre and multi-account IP isolation is in
-**`references/limits-safety.md` §12 and §16** — do not duplicate or re-derive it here.
+**`references/limits-safety.md` §12 and §16**: do not duplicate or re-derive it here.
 
 **Add a proxy:** Launcher → `Proxies` → `Add new` → choose protocol (**HTTP / HTTPS / SOCKS /
 SOCKS5 IPv4**) → IP + port → login/password **if private** → `Test and save`.
@@ -468,26 +468,26 @@ level and assigned per account: managing them needs workspace **Admin/Owner**, a
 
 A proxy belongs in a licence/account setup when the instance runs on a **VPS or dedicated server
 abroad** (server IP will not match the account's country); when the operator runs **someone else's
-account** (agency, VA, client work); or when **multiple accounts** run from one machine or server —
+account** (agency, VA, client work); or when **multiple accounts** run from one machine or server:
 the vendor rule is "**One proxy. One account**", "Unique IP per account".
 
 `Never ask for, echo, store or transmit proxy credentials.` Give the UI path and let the user type
-the login and password. Validation is the built-in `Test and save` plus the `Proxies` health check —
+the login and password. Validation is the built-in `Test and save` plus the `Proxies` health check:
 the docs describe an "IPQualityScore audit that checks fraud scores" `[LH-CLAIM]`.
 Source: https://support.linkedhelper.com/hc/en-us/articles/360015219400-How-to-manage-multiple-LinkedIn-accounts · https://www.linkedhelper.com/features/safety-kit
 
 ## 9. Cloud, VPS and 24/7 operation
 
-### 9.1 "Campaigns stop when I turn off my PC" — not a bug
+### 9.1 "Campaigns stop when I turn off my PC": not a bug
 
-Verbatim: the standalone version **is not a cloud solution** — it "works locally on your PC, as well
+Verbatim: the standalone version **is not a cloud solution**: it "works locally on your PC, as well
 as all the data it collects is stored in a local database. **Linked Helper cannot perform any action
 when it is stopped or when the PC is turned off."**
 
 Documented fix: install on a **remote server (VPS or dedicated)**. Stated benefits: operation
 through PC failure, power or internet loss; access from anywhere; colleague/supervisor remote
 access; more simultaneous accounts on stronger hardware. Do **not** offer the Cloud-based storage
-plan as the answer — it syncs the database, not execution (§5).
+plan as the answer: it syncs the database, not execution (§5).
 Source: https://support.linkedhelper.com/hc/en-us/articles/360015376519-Is-Linked-Helper-a-cloud-solution-Can-it-process-my-leads-while-PC-is-off
 
 ### 9.2 Documented VPS / dedicated-server facts
@@ -500,7 +500,7 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/360015376519-Is-Linke
   servers** (splitting prevents I/O throttling). "A dedicated server is recommended for running
   multiple LinkedIn accounts simultaneously, especially if there are more than 10."
 - **Ubuntu update caveat:** Windows auto-updates silently; **"On Ubuntu, you need to approve the
-  update by providing the user password"** — budget a recurring manual update task.
+  update by providing the user password"**: budget a recurring manual update task.
 - **Named providers** `[LH-CLAIM]`: **HostZealot** (pre-installed, filterable by account capacity),
   **Ionos** (VPS + dedicated, manual install), **InterServer** ("up to 23 accounts per server").
 - Windows Server 2016+ in the official OS list is the closest thing to a VPS/RDP endorsement.
@@ -511,7 +511,7 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/360015376519-Is-Linke
 
 Source: https://support.linkedhelper.com/hc/en-us/articles/360016233680-How-to-run-Linked-Helper-in-a-cloud-remote-server · https://support.linkedhelper.com/hc/en-us/articles/22773952344082-Special-offers · https://www.linkedhelper.com/downloads
 
-### 9.3 RDP session behaviour — `[UNVERIFIED]`
+### 9.3 RDP session behaviour: `[UNVERIFIED]`
 
 **None of the following is documented anywhere in the help center** (the cloud overview article and
 the Windows VPS install guide were both checked): whether LH2 keeps running after you **disconnect**
@@ -523,12 +523,12 @@ server **timezone** steps (only the *principle* of matching proxy ↔ account ti
 Do not state RDP persistence as fact. Safe advice: test with a short campaign, disconnect (do not
 sign out), check processed counts an hour later. The only related documented fragment is the Ubuntu
 firewall rule whitelisting RDP: `sudo ufw allow from any to any port 3389 proto tcp`. Note LH2
-requires a GUI (Gnome mandatory on Ubuntu, §6.2) — a headless server is not an option.
+requires a GUI (Gnome mandatory on Ubuntu, §6.2): a headless server is not an option.
 Source: https://support.linkedhelper.com/hc/en-us/articles/360015752540-How-to-install-Linked-Helper-on-a-VPS-virtual-private-server-with-Windows-OS
 
 ## 10. Data management
 
-### 10.1 User-data folder — default paths
+### 10.1 User-data folder: default paths
 
 ```
 Windows          C:\Users\{username}\AppData\Roaming\linked-helper
@@ -544,21 +544,21 @@ C:\%userprofile%\AppData\Local\SquirrelTemp\
 
 Source: https://support.linkedhelper.com/hc/en-us/articles/360019392720-How-to-change-Linked-Helper-user-data-folder · https://support.linkedhelper.com/hc/en-us/articles/360015656279-Linked-Helper-installation-fails-on-Windows
 
-### 10.2 Moving the user-data folder — the documented fix for a full disk
+### 10.2 Moving the user-data folder: the documented fix for a full disk
 
 One environment variable does it: **`LH_APP_USER_DATA_PATH`**.
 
-**Windows** — (1) close all Linked Helper windows; (2) create the new folder, e.g.
+**Windows**: (1) close all Linked Helper windows; (2) create the new folder, e.g.
 `D:\linked-helper`; (3) move the existing AppData data into it; (4) Start →
 **"Edit the system environment variables"**; (5) **Advanced** tab → **"Environment Variables…"**;
 (6) add a **system** variable `LH_APP_USER_DATA_PATH` = the new path; (7) restart Linked Helper.
 
-**macOS** — (1) close all windows; (2) Finder → **"Go to Folder"** →
+**macOS**: (1) close all windows; (2) Finder → **"Go to Folder"** →
 `/Users/{username}/Library/Application Support/`; (3) move the `linked-helper` folder to the new
 location; (4) create or edit `setENV.plist` in `/Users/{username}/Library/LaunchAgents/`;
 (5) add `launchctl setenv LH_APP_USER_DATA_PATH /your/new/path`; (6) reboot.
 
-**Ubuntu** — (1) close all windows; (2) `sudo nano /etc/environment`; (3) add
+**Ubuntu**: (1) close all windows; (2) `sudo nano /etc/environment`; (3) add
 `LH_APP_USER_DATA_PATH="/your/new/path"`; (4) `Ctrl+O` to save, `Ctrl+X` to exit; (5) move the data
 folder and restart Ubuntu.
 
@@ -568,11 +568,11 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/360019392720-How-to-c
 
 ### 10.3 Backup and restore
 
-**Create a backup** — (1) open the **Launcher**; (2) `LinkedIn accounts` menu; (3) **hover over**
+**Create a backup**: (1) open the **Launcher**; (2) `LinkedIn accounts` menu; (3) **hover over**
 the account; (4) **stop the instance** if needed; (5) click `Backup`; (6) select `Export` and save
 the file.
 
-**Restore** — Launcher → `LinkedIn accounts` → hover the account → stop the instance if needed →
+**Restore**: Launcher → `LinkedIn accounts` → hover the account → stop the instance if needed →
 `Backup` → `Import` → select the backup file.
 
 **Warn before every restore, verbatim:** "**When a backup file is imported, current data will be
@@ -580,7 +580,7 @@ overwritten.**" / "Restoring a backup file overwrites all current data for a Lin
 certain computer."
 
 **Contents:** that account's **local database file**. The app stores "most of the data locally on
-your computer" — not in the cloud (local variant). This is also the **supported way to move an
+your computer", not in the cloud (local variant). This is also the **supported way to move an
 account between machines**: back up on the old PC, restore on the new one.
 
 **No automatic-backup schedule or retention count is documented** → `[UNVERIFIED]`. On local
@@ -588,25 +588,25 @@ storage, treat manual backups as a scheduled task: before an app update, before 
 folder, before a machine migration, and on a routine cadence.
 Source: https://support.linkedhelper.com/hc/en-us/articles/360016353900-How-to-backup-restore-your-Linked-Helper-data
 
-### 10.4 What cannot be deleted — and the hide-instead-of-delete reality
+### 10.4 What cannot be deleted, and the hide-instead-of-delete reality
 
 **Deletion is blocked by design, to protect database consistency.** Three objects, three
 workarounds. Never tell a user to "just delete it".
 
-**Campaigns — cannot be deleted.** Verbatim: "it is not possible to delete a campaign from the
+**Campaigns: cannot be deleted.** Verbatim: "it is not possible to delete a campaign from the
 Linked Helper 2 Instance as it may cause consistency issues in the database."
 *Archive instead:* install the `Multi-campaigns runner plug-in` (Plug-in store) → `Campaigns` →
 select the campaign → `Archive`. *Unarchive:* `Campaigns` → `Archived` tab → select → `Unarchived` →
 switch back to the `Main` filter to confirm. What happens to the campaign's contacts is not stated
 → `[UNVERIFIED]`.
 
-**CRM profiles — cannot be deleted.** Verbatim: "it is not possible to delete profiles out of
+**CRM profiles: cannot be deleted.** Verbatim: "it is not possible to delete profiles out of
 CRM…because it might cause data consistency issues."
 *Hide instead:* install the `Tagging system plug-in` → tag the unwanted profiles `deleted` → apply a
 **"Without Tags"** filter to hide them → optionally use the `deleted` tag to push them into an
 `Exclude list` (needs the `Exclude list` plug-in).
 
-**LinkedIn accounts in the Launcher — cannot be deleted.** Verbatim: "it is not possible to delete a
+**LinkedIn accounts in the Launcher: cannot be deleted.** Verbatim: "it is not possible to delete a
 LinkedIn account out of your Linked Helper 2 Launcher permanently due to safety and possible
 database consistency issues."
 *Archive instead:*
@@ -617,25 +617,25 @@ database consistency issues."
    instance can't be used for another LinkedIn account".
 5. Click `Archive`.
 
-Two consequences: (a) the database only ever grows — hence the disk-full fix in §10.2; (b) there is
+Two consequences: (a) the database only ever grows, hence the disk-full fix in §10.2; (b) there is
 no "clean slate", so a global exclusion list must be *built* (`SKILL.md` §7,
 `references/campaigns.md`).
 Source: https://support.linkedhelper.com/hc/en-us/articles/360018168939-How-to-delete-archive-a-campaign · https://support.linkedhelper.com/hc/en-us/articles/360015485399-Can-I-delete-profiles-from-CRM · https://support.linkedhelper.com/hc/en-us/articles/360018187780-How-to-delete-a-LinkedIn-account-from-the-Launcher
 
 ## 11. Sending logs to support
 
-> **WARNING — never transmit logs yourself.** LH2 logs and the database archive can contain
+> **WARNING: never transmit logs yourself.** LH2 logs and the database archive can contain
 > LinkedIn session data, cookies, message bodies, contact records and account identifiers. **Never
 > upload, email, attach, paste, pipe or otherwise transmit a user's logs or backup files anywhere.**
 > Give the user the procedure below and let them send it through the official channel. If a log or
 > backup is handed to you, do not forward it and do not quote session tokens, cookies or credentials
-> out of it. The in-app export route **auto-uploads to Linked Helper's servers** — say so before the
+> out of it. The in-app export route **auto-uploads to Linked Helper's servers**: say so before the
 > user clicks, so the upload is their informed choice.
 
-**Route A — in-app (auto-uploads):** Launcher → `Backup` → `Logs & data for developers` — exports
+**Route A, in-app (auto-uploads):** Launcher → `Backup` → `Logs & data for developers`: exports
 logs plus a database archive **with automatic upload to Linked Helper's servers**.
 
-**Route B — support form:** left rail `Need help` → `Ask for support`. Fields: name, email,
+**Route B, support form:** left rail `Need help` → `Ask for support`. Fields: name, email,
 application version, message, **up to 5 files**. Also named: Facebook messaging, WhatsApp; "average
 reply time is about 15 minutes" `[LH-CLAIM]`.
 
@@ -682,7 +682,7 @@ a plug-in and an action. Translate before saying a feature does or does not exis
 
 Marketing headline counts, for recognition only: "30+ features in your toolkit" / "30+ Automated
 Actions" / "30+ Action Types"; 300,000+ users; 10,000 businesses; 9 years; 180 countries; Capterra
-4.9, G2 4.5, Trustpilot 4.8. `[LH-CLAIM]` — social proof, not capability.
+4.9, G2 4.5, Trustpilot 4.8. `[LH-CLAIM]`: social proof, not capability.
 
 Source: https://www.linkedhelper.com/ · https://www.linkedhelper.com/features/safety-kit · https://www.linkedhelper.com/features/personalization-suite · https://www.linkedhelper.com/features/auto-commenter-liker · https://www.linkedhelper.com/features/post-booster · https://www.linkedhelper.com/features/event-inviter · https://www.linkedhelper.com/features/email-finder · https://www.linkedhelper.com/features/data-enricher · https://www.linkedhelper.com/features/data-export · https://www.linkedhelper.com/features/scrape-messaging-history · https://www.linkedhelper.com/features/workspaces
 
@@ -702,10 +702,10 @@ pick.** Verified 2026-09-01.
 | 7 | **Single-account minimum RAM** | Requirements table: **2.5 GB** free RAM | Same article's prose: **"4 GB RAM, 1 core, 4 GB disk"** | Quote **4 GB** |
 | 8 | **Windows storage location** | `/downloads`: files "must be stored on disk **C** only" | User-data-folder article documents moving data to **`D:\linked-helper`** via `LH_APP_USER_DATA_PATH` | The move is documented and supported; mention the "C only" statement and suggest a backup first |
 | 9 | **Supported Ubuntu / server OS range** | Requirements: **Ubuntu 18.04 or higher** | Cloud article: only **Ubuntu 22.04 / 20.04** and **Windows Server 2022/2019/2016** | For servers, stay on **22.04 / 20.04**; 24.04 has a documented `Disconnect fired` failure |
-| 10 | **Skill Endorser reciprocation** | "up to 30%" | "approximately 10–30%" — same page | Both recorded; it is marketing either way `[LH-CLAIM]` |
+| 10 | **Skill Endorser reciprocation** | "up to 30%" | "approximately 10–30%", same page | Both recorded; it is marketing either way `[LH-CLAIM]` |
 | 11 | **Integration lists** | Snov.io and Hyperise named on feature pages | Absent from `/integrations/all-integrations` | Treat as indirect/secondary integrations |
 
-**`[UNVERIFIED]` in this file's scope — do not assert any of these:** per-operation **AI credit**
+**`[UNVERIFIED]` in this file's scope, do not assert any of these:** per-operation **AI credit**
 rates and AI model names · credit **rollover/expiry** and package refunds · **cloud per-term
 totals** (arithmetic only, §1.2), non-USD currencies, refund policy · trial credit allowance and
 trial throughput caps · team/agency/enterprise tier, maximum workspaces/seats/accounts · app
@@ -713,5 +713,5 @@ trial throughput caps · team/agency/enterprise tier, maximum workspaces/seats/a
 **RDP disconnect vs sign-out** persistence, minimum RDP resolution, server sleep/lock-screen and
 timezone steps · automatic-backup schedule or retention · what happens to contacts when a campaign
 is archived · Email Finder / Data Enricher accuracy percentages · LinkedIn's own official
-invite/action limits (LH publishes only its own recommendations — `references/limits-safety.md`).
+invite/action limits (LH publishes only its own recommendations: `references/limits-safety.md`).
 Source: https://www.linkedhelper.com/pricing · https://www.linkedhelper.com/features/data-enricher · https://www.linkedhelper.com/features/email-finder · https://www.linkedhelper.com/features/data-export · https://www.linkedhelper.com/features/scrape-messaging-history · https://support.linkedhelper.com/hc/en-us/articles/360016768020-Licensing-Standard-and-PRO-licenses-Pricing-and-discounts · https://support.linkedhelper.com/hc/en-us/articles/13201238845714-Linked-Helper-Data-Credits · https://support.linkedhelper.com/hc/en-us/articles/35911233008914-Linked-Helper-AI-credits · https://support.linkedhelper.com/hc/en-us/articles/360015376939-What-Linked-Helper-hardware-and-software-requirements-are · https://support.linkedhelper.com/hc/en-us/articles/360019392720-How-to-change-Linked-Helper-user-data-folder · https://support.linkedhelper.com/hc/en-us/articles/360016233680-How-to-run-Linked-Helper-in-a-cloud-remote-server · https://www.linkedhelper.com/downloads
