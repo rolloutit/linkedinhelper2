@@ -53,12 +53,31 @@ Claims are also tagged `[LH-CLAIM]` (vendor says it), `[LI-POLICY]` (LinkedIn's 
 
 ### As a plugin (Claude Code / Cowork)
 
+This repo is its own single-plugin marketplace, so two commands install it:
+
 ```bash
 /plugin marketplace add rolloutit/linkedinhelper2
-/plugin install linkedinhelper2
+/plugin install linkedinhelper2@rolloutit
 ```
 
-Or add this repo to a marketplace you already maintain.
+Verify with `/plugin list` (or the **Installed** tab of `/plugin`). If it doesn't activate
+immediately, run `/reload-plugins`.
+
+To try it before installing:
+
+```bash
+claude --plugin-dir /path/to/linkedinhelper2
+```
+
+### As a `.plugin` bundle (Cowork desktop)
+
+A `.plugin` file is just this repo's contents zipped:
+
+```bash
+cd linkedinhelper2 && zip -r /tmp/linkedinhelper2.plugin . -x '*.git*' '*.DS_Store'
+```
+
+Send that file into a Cowork chat and it renders as an installable card.
 
 ### As a plain skill
 
@@ -82,7 +101,9 @@ loads itself.
 linkedinhelper2/
 ├── README.md
 ├── LICENSE
-├── .claude-plugin/plugin.json
+├── .claude-plugin/
+│   ├── plugin.json                 # plugin manifest
+│   └── marketplace.json            # makes the repo installable as a marketplace
 └── skills/linkedinhelper2/
     ├── SKILL.md                        # routing file: mental model, decision tables, guardrails
     ├── references/

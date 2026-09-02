@@ -1,0 +1,16 @@
+{
+  "name": "rolloutit",
+  "owner": { "name": "Rollout IT", "email": "balazs@rolloutit.net", "url": "https://rolloutit.net" },
+  "description": "Rollout IT public plugin marketplace.",
+  "plugins": [
+    {
+      "name": "linkedinhelper2",
+      "source": "./",
+      "description": "Expert operator's manual for Linked Helper 2 — LinkedIn outreach campaigns, action/plug-in catalogue, message personalization, account-safety limits, integrations and troubleshooting.",
+      "version": "1.0.0",
+      "author": { "name": "Rollout IT", "url": "https://rolloutit.net" },
+      "license": "MIT",
+      "keywords": ["linked-helper", "linkedhelper", "linkedin", "outreach", "sales-automation", "lead-generation", "prospecting"]
+    }
+  ]
+}
