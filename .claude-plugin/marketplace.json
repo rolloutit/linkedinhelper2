@@ -6,7 +6,7 @@
     {
       "name": "linkedinhelper2",
       "source": "./",
-      "description": "Expert operator's manual for Linked Helper 2 — LinkedIn outreach campaigns, action/plug-in catalogue, message personalization, account-safety limits, integrations and troubleshooting.",
+      "description": "Expert operator's manual for Linked Helper 2: LinkedIn outreach campaigns, action/plug-in catalogue, message personalization, account-safety limits, integrations and troubleshooting.",
       "version": "1.0.0",
       "author": { "name": "Rollout IT", "url": "https://rolloutit.net" },
       "license": "MIT",
