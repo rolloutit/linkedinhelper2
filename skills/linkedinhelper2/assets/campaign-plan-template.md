@@ -1,4 +1,4 @@
-# Linked Helper 2 — Campaign Plan
+# Linked Helper 2: Campaign Plan
 
 Fill every field before touching the app. An empty field is a decision you have not made yet.
 Menu paths below are the real LH2 paths; `references/` files in this skill hold the detail.
@@ -15,7 +15,7 @@ Menu paths below are the real LH2 paths; `references/` files in this skill hold 
 | LH2 licence (Standard / Pro) | |
 | Storage (local / cloud) | |
 | Runs on (desktop / VPS) | |
-| Proxy in use (yes/no — never record credentials here) | |
+| Proxy in use (yes/no: never record credentials here) | |
 | Success metric and target | |
 
 ## 2. Audience and lead source
@@ -92,12 +92,12 @@ For each message step: template text, every variable used, and the fallback when
 | Message 3 | | | | |
 
 - [ ] Previewed with a real profile from the actual queue.
-- [ ] Every variable has an IF-THEN-ELSE or `cs_*` fallback — no message can go out with a hole.
+- [ ] Every variable has an IF-THEN-ELSE or `cs_*` fallback: no message can go out with a hole.
 - [ ] At least 2 variants (or spintax) per step.
 - [ ] No links in the invitation note. No pitch in the connection request.
 - [ ] Character counts inside the documented limits.
 
-## 7. Exits — where the data goes
+## 7. Exits: where the data goes
 
 | Field | Value |
 |---|---|
