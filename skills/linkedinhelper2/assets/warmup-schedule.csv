@@ -1,0 +1,9 @@
+day_range,phase,invites_per_day,messages_per_day,engagement_actions_per_day,profile_views_per_day,pacing_setting,grounding,notes
+1-7,seed,5,0,5,10,SAFE,documented,"Invites from LinkedIn's own recommendations only. Complete the profile first. Documented week-1 values: 5 invites, engage with 5 posts, 10 profile views."
+8-14,seed,5,5,5,20,SAFE,documented,"First messages only to existing 1st connections. Documented week-2 values: 5 messages, 20 profile views."
+15-24,ramp-1,15,15,8,50,SAFE,documented milestones with interpolation,"Documented: start at 10-15 invites/day; 15 messages/day and 50 profile views in week 3. First real campaign - warm-up steps placed before the invite step."
+25-30,ramp-2,25,25,10,50,SAFE,derived,"+10 per 10 days, per the documented '+5-10 every 10 days' rule. Check acceptance rate before each increase."
+31-40,ramp-3,35,35,10,50,SAFE,documented milestone,"Documented: ~35 invites/day by month 1. Hold a full 10 days here. Withdraw stale pending invites for the first time."
+41-50,ramp-4,40,45,10,50,FAST,derived,"Switch off SAFE only if there have been zero LinkedIn prompts so far - the switch day is judgement, not documented."
+51-60,ramp-5,45,50,10,50,FAST,derived,"Keep pending invites under 500 throughout."
+61+,steady,50,50,10,50,FAST,documented ceiling plus vendor Safety Kit cap,"Documented: ~50 invites/day by month 2, matching the app's advanced-limit default. Messages held at 50 because the vendor's own Safety Kit recommends 50-60/day, not the app's 150 default. These are ceilings, not targets - the Safety Kit's own invite guidance is 25-30/day."
