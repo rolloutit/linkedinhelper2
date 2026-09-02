@@ -1,14 +1,14 @@
-# Data out and integrations — CSV, webhooks, CRMs, Zapier, Sheets, Snov.io, credits
+# Data out and integrations: CSV, webhooks, CRMs, Zapier, Sheets, Snov.io, credits
 
 Everything about getting leads *out* of Linked Helper 2 (and the one documented way to push them
-*in*). Read §2 first — it routes to the rest.
+*in*). Read §2 first: it routes to the rest.
 
 ## Contents
 
-1. [Decision table — "I want my leads in X"](#1-decision-table)
-2. [CSV export — path, gating, complete field lists](#2-csv-export)
-3. [Outgoing webhooks — person, organization, replied](#3-outgoing-webhooks)
-4. [Incoming webhooks — pushing leads INTO Linked Helper](#4-incoming-webhooks)
+1. [Decision table: "I want my leads in X"](#1-decision-table)
+2. [CSV export: path, gating, complete field lists](#2-csv-export)
+3. [Outgoing webhooks: person, organization, replied](#3-outgoing-webhooks)
+4. [Incoming webhooks: pushing leads INTO Linked Helper](#4-incoming-webhooks)
 5. [Native CRM integrations](#5-native-crm-integrations)
 6. [Zapier / Make / n8n](#6-zapier--make--n8n)
 7. [Google Sheets direct](#7-google-sheets-direct)
@@ -25,13 +25,13 @@ Read this before recommending anything. The route is determined by the destinati
 
 | "I want my leads in…" | Documented route | Prerequisites | Limitations |
 |---|---|---|---|
-| **A spreadsheet, once** | CSV export: action's `Successful` list → `Select all` → `Download` | Nothing | Manual, point-in-time. Messaging history is gated — see §2 `CONFLICT`. CSV→Excel needs UTF-8 + semicolon delimiter |
+| **A spreadsheet, once** | CSV export: action's `Successful` list → `Select all` → `Download` | Nothing | Manual, point-in-time. Messaging history is gated: see §2 `CONFLICT`. CSV→Excel needs UTF-8 + semicolon delimiter |
 | **Google Sheets, continuously** | `Send person to webhook` → Google Apps Script Web app (§7) | A Google account; Apps Script deployment | One deployment per sheet; renaming the sheet forces a new deployment + new URL |
 | **HubSpot / Pipedrive / Close / Zoho CRM / Zoho Recruit / HighLevel / ActiveCampaign / Salesforce / Streak** | `Send person to external CRM` (§5) | OAuth login or API key/access token for that CRM; field mapping | Default identifier is **email only** → duplicates for emailless profiles. Standard licence caps this at 20 / 24 h. Messaging-history export is PRO-only |
-| **Capsule** | Listed as a native CRM integration on `/integrations/all-integrations` (§5) | `UNVERIFIED` — not named in the `Send person to external CRM` action article's CRM roster | Treat as native-but-unconfirmed; verify in the action's CRM dropdown before promising it |
+| **Capsule** | Listed as a native CRM integration on `/integrations/all-integrations` (§5) | `UNVERIFIED`: not named in the `Send person to external CRM` action article's CRM roster | Treat as native-but-unconfirmed; verify in the action's CRM dropdown before promising it |
 | **Instantly (email sequencer)** | Native integration (§8) | Instantly account | Documented only as an integration article; no field list published → `UNVERIFIED` |
 | **Apollo.io** | Listed both as a native integration and as an enrichment *source* inside `Find Profile Emails` / `Visit & Extract profiles` (§5, §9) | Apollo master API key, or a key with `api/v1/people/match` scope | Uses Apollo's own credits, not Linked Helper credits |
-| **Snov.io campaign or list** | `Send person to Snov.io campaign` (§8) | Snov.io account + API credentials | Does **not** find emails itself — run `Visit & Extract profiles` or `Find Profile Emails` first. Sends only first name, last name, email, company, position |
+| **Snov.io campaign or list** | `Send person to Snov.io campaign` (§8) | Snov.io account + API credentials | Does **not** find emails itself: run `Visit & Extract profiles` or `Find Profile Emails` first. Sends only first name, last name, email, company, position |
 | **Anything with 7,000+ app coverage (Make / Zapier / n8n)** | `Send person to webhook` → the platform's catch-hook (§6) | An account on that platform | Zapier: **100 API calls per minute** (Linked Helper is an unpromoted app). Standard licence: 20 webhook sends / 24 h |
 | **My own API / custom endpoint** | `Send person to webhook` (§3) | An HTTPS endpoint that accepts POST | No auth mechanism documented on the outgoing side. Standard licence 20 / 24 h |
 | **Organization/company records, not people** | `Send organization to webhook` (§3), or the `Organization` tab of `Send person to external CRM` | An organization/extractor campaign | Separate, smaller field set (§2, §3) |
@@ -84,7 +84,7 @@ emails for 1st-degree connections; 2nd/3rd degree require the email-finding acti
 Source: https://support.linkedhelper.com/hc/en-us/articles/10669732514578-Export-profile-information
 
 Marketing framing: "Export 200+ LinkedIn lead data points to CSV, CRM, ATS, Google Sheets, or
-webhooks — including profile, company, campaign, and messaging history" — **200+ data points**
+webhooks, including profile, company, campaign, and messaging history", **200+ data points**
 across five categories (profile, contact, company, campaign, conversation). `[LH-CLAIM]`
 Source: https://www.linkedhelper.com/features/data-export
 
@@ -107,7 +107,7 @@ Source: https://www.linkedhelper.com/blog/linkedin-sales-navigator-export-leads-
 Source: https://www.linkedhelper.com/pricing
 Source: https://www.linkedhelper.com/features/data-enricher
 
-**`CONFLICT` — messaging-history export gating.** Two official pages disagree:
+**`CONFLICT`: messaging-history export gating.** Two official pages disagree:
 
 - The `/pricing` comparison table marks **"Export messaging history" as ✓ for Standard**.
   Source: https://www.linkedhelper.com/pricing
@@ -125,7 +125,7 @@ Recommend the conservative reading: **assume messaging-history export needs Pro*
 user to verify on their own licence before building a pipeline that depends on it.
 
 Related gating: `Scrape messaging history` **does not scrape group chats (3+ participants)** or
-attachment files — it records only that an attachment was exchanged.
+attachment files: it records only that an attachment was exchanged.
 Source: https://www.linkedhelper.com/features/scrape-messaging-history
 
 ### Complete person field list (camelCase, CSV/CRM export)
@@ -169,14 +169,14 @@ languages  skills  twitters  websites  phoneNumbers  emails
 
 Field notes, verbatim from the docs:
 
-- `CONSTANT_VALUE` — "Any value you manually entered in the field will be sent to a CRM." Use it to
+- `CONSTANT_VALUE`: "Any value you manually entered in the field will be sent to a CRM." Use it to
   stamp a static source/owner tag on every record.
-- `workEmail` — "the one that uses non-public company domain"; `personalEmail` — public domain.
-- `memberId` is unique across all LinkedIn users; **`lhId` is unique only in the local DB** — never
+- `workEmail`: "the one that uses non-public company domain"; `personalEmail`: public domain.
+- `memberId` is unique across all LinkedIn users; **`lhId` is unique only in the local DB**: never
   key a cross-system join on `lhId`.
-- `campaignType` — "People or organizations".
-- `thirdPartyEmail*` — "Emails found via Snov.io integration or other sources".
-- `fullMessagingHistory` / `campaignMessagingHistory` are the two messaging-history columns — the
+- `campaignType`: "People or organizations".
+- `thirdPartyEmail*`: "Emails found via Snov.io integration or other sources".
+- `fullMessagingHistory` / `campaignMessagingHistory` are the two messaging-history columns: the
   ones affected by the Pro gating `CONFLICT` above.
 
 Source: https://support.linkedhelper.com/hc/en-us/articles/16713677664274-Data-fields-exported-from-Linked-Helper-into-a-webhook-CRM-or-CSV-file
@@ -212,15 +212,15 @@ webhooks.
 inside messaging actions such as `Message to 1st connections` and `Check for replies`.
 
 **Settings:**
-- `General` tab → **`Webhook URL`** field — paste the destination URL.
-- `Convert data to flat objects (like in CSV export)` — Yes / No.
-- `Convert multi-line values into single line` — Yes / No.
-- Column-count adjustment — "number of Educations, Messengers, Positions, Phone numbers, Websites,
+- `General` tab → **`Webhook URL`** field: paste the destination URL.
+- `Convert data to flat objects (like in CSV export)`: Yes / No.
+- `Convert multi-line values into single line`: Yes / No.
+- Column-count adjustment: "number of Educations, Messengers, Positions, Phone numbers, Websites,
   Languages, and Full / Campaign messaging history columns".
-- Messaging-history inclusion — **Full** or **Campaign**; checkbox "enable messaging export, if
+- Messaging-history inclusion: **Full** or **Campaign**; checkbox "enable messaging export, if
   needed".
 - Custom fields are referenced in webhook config with **double curly braces**:
-  `{{cs_hubspot_crm_id}}` — note this differs from the single-brace `{cs_name}` syntax used in
+  `{{cs_hubspot_crm_id}}`: note this differs from the single-brace `{cs_name}` syntax used in
   message templates.
 
 **When it fires:** when the action processes a profile. Successful profiles move to that action's
@@ -239,7 +239,7 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/360020407940-How-to-s
 
 Sends data from **organization-scraping** campaigns to a third-party app.
 
-**Settings:** **`Webhook URL`** field · `Convert multi-line values into single line` — Yes / No
+**Settings:** **`Webhook URL`** field · `Convert multi-line values into single line`: Yes / No
 (when Yes, newline characters inside fields are removed).
 **Extensions:** `Tagging system`, `Postpone action start`.
 **Behaviour:** does not count toward daily limits; stores no data, only sends; successful profiles
@@ -255,8 +255,8 @@ detected."
 messaging actions (`Message to 1st connections`, `Message to group members`,
 `Message to event attendees`).
 **Settings:** webhook configuration inside those actions; exact field labels are screenshot-only
-in the docs — `[UNVERIFIED]` at the label level.
-**When it fires:** at reply detection. Remember replies are **not** monitored continuously — LH
+in the docs: `[UNVERIFIED]` at the label level.
+**When it fires:** at reply detection. Remember replies are **not** monitored continuously: LH
 detects a reply only when it processes that profile through a `Check for replies` or messaging
 action, so this webhook fires on that schedule, not in real time.
 **Gating:** "with Standard license messaging history cannot be sent via a webhook. There is no
@@ -267,7 +267,7 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/9057995150482-Send-re
 
 **Read this before writing any receiver mapping.** The webhook payload uses **snake_case**; the
 CSV/CRM export field list in §2 uses **camelCase** for the same data. They are *not* the same
-strings — `firstName` in CSV is `first_name` in the webhook, `profileUrl` is `profile_url`,
+strings: `firstName` in CSV is `first_name` in the webhook, `profileUrl` is `profile_url`,
 `lhId` is `lh_id`. Several fields also differ structurally, not just in case: the webhook flattens
 repeated entities with a numeric suffix (`organization_1`, `education_1`, `phone_1`) where the CSV
 uses plural bag columns (`phoneNumbers`, `languages`, `skills`). Mapping one list onto the other by
@@ -366,7 +366,7 @@ only secret and handle it accordingly (§11).
 
 **Rules:**
 - `payload.people` is required, minimum 1 item.
-- `externalId` = "LI/SN profile URL" — a LinkedIn or Sales Navigator profile URL, not an internal id.
+- `externalId` = "LI/SN profile URL": a LinkedIn or Sales Navigator profile URL, not an internal id.
 - `customFields` is optional per person.
 - Custom field `key` must match **`^cs_.+`** and be **at least 4 characters**.
 
@@ -374,7 +374,7 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/37041823852946-Incomi
 Source: https://support.linkedhelper.com/hc/en-us/articles/37009797813010-Linked-Helper-cloud-based-storage-version
 
 Note the asymmetry: an inbound push carries a URL and `cs_*` fields only. It cannot pre-seed names,
-companies or emails — LH scrapes those itself. This matches the CSV-import rule that only URLs are
+companies or emails: LH scrapes those itself. This matches the CSV-import rule that only URLs are
 read and other columns are ignored.
 
 ---
@@ -383,25 +383,25 @@ read and other columns are ignored.
 
 ### The action
 
-**`Send person to external CRM`** — pushes profile data from the workflow into a natively-integrated
+**`Send person to external CRM`**: pushes profile data from the workflow into a natively-integrated
 third-party CRM. Matches by identifier, then updates the existing contact or creates a new one.
 
-**Lives:** campaign workflow — add via the `+` button in the action sequence.
+**Lives:** campaign workflow. Add via the `+` button in the action sequence.
 
 **Tabs and controls (HubSpot as the documented reference implementation):**
-- `General` tab — authentication and data settings; `Access token` **or** `OAuth`.
+- `General` tab: authentication and data settings; `Access token` **or** `OAuth`.
 - `Send the person's messaging history as the lead's Linked activity` (checkbox).
 - `Associate the lead's activity with a Contact, Company, or both`.
 - `Choose owner ID` / `Owner ID` selection.
 - Field mapping: **`LH field`** dropdown → **`CRM field`** dropdown, with an **`Overwrite`** toggle
   per field for non-empty CRM values.
 - `Create new field` option; element selector for multi-value fields (e.g. which phone number).
-- `Organization` tab — separate mapping for company data, plus a
+- `Organization` tab: separate mapping for company data, plus a
   **`Create most useful custom fields`** button.
 
 **Constraints:** "The work of this action is not counted towards daily limits." But the licensing
 article lists `Send person to external CRM` among the activities **capped at 20 per 24 h on a
-Standard license** — that is a *licence* cap, not a LinkedIn action limit. Messaging-history export
+Standard license**: that is a *licence* cap, not a LinkedIn action limit. Messaging-history export
 is PRO-only (see the §2 `CONFLICT`).
 
 **Defaults:** configure once in **`Settings` → `External CRMs`**, then tick
@@ -415,7 +415,7 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/14588836379538-Send-p
 - "Change CRM's default settings. These settings can be changed anytime, and the changes are
   immediately reflected in the Actions that use default CRM settings."
 - **Consumed by:** the `Send person to external CRM` action, messaging actions, and
-  `Check for replies` — each via a **`Use default external CRM settings`** option.
+  `Check for replies` (each via a **`Use default external CRM settings`** option).
 - This sub-menu is not listed in the four-item `Settings` overview (`Limits`, `Working hours`,
   `Actions`, `Interface`) but exists as its own article. If a user says they cannot find it, that
   is why.
@@ -424,13 +424,13 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/15107496924434-Extern
 
 ### The full named roster
 
-`CONFLICT` on the count and membership — three official surfaces list different sets:
+`CONFLICT` on the count and membership. Three official surfaces list different sets:
 
 | Surface | Named integrations | Count |
 |---|---|---|
 | `Send person to external CRM` action article | HubSpot, Pipedrive, Close, Zoho CRM, Zoho Recruit, HighLevel, ActiveCampaign, Salesforce, Streak | 9 |
 | `/integrations/all-integrations` | CRM: HubSpot, Pipedrive, Close, HighLevel, Salesforce, Streak, Zoho, Capsule · ATS: Zoho Recruit · Email tools: Instantly, Apollo.io · Marketing automation: ActiveCampaign · Data & spreadsheets: Google Sheets · Automation platforms (webhook-based): Make, Zapier, n8n | **14 named** (the page does not state a total itself) |
-| Blog | 8 named: HubSpot, Pipedrive, Close.io, Salesforce, Zoho, HighLevel, ActiveCampaign, Zoho Recruit — while a second post says "11 native integrations" | 8 / 11 — **CONTRADICTION** |
+| Blog | 8 named: HubSpot, Pipedrive, Close.io, Salesforce, Zoho, HighLevel, ActiveCampaign, Zoho Recruit, while a second post says "11 native integrations" | 8 / 11: **CONTRADICTION** |
 
 Sources:
 https://support.linkedhelper.com/hc/en-us/articles/14588836379538-Send-person-to-external-CRM
@@ -441,7 +441,7 @@ Practical rule: **Capsule** appears only on the marketing integrations page, not
 CRM roster → treat it as `UNVERIFIED` until seen in the dropdown. Everything in the 9-item action
 roster is safe to promise.
 
-Named on feature pages but **not** on `/integrations/all-integrations` — record as
+Named on feature pages but **not** on `/integrations/all-integrations`, record as
 indirect/secondary and as a page inconsistency: **Snov.io** (email-finding source),
 **Hyperise** (personalised images), **Apollo.io** (appears both as a native integration and as an
 external email-finding source with its own credits).
@@ -475,8 +475,8 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/14748831263762-Integr
   data to empty fields only and leaves existing values in the CRM unchanged." Use the
   **`Overwrite`** toggle per field to force updates.
 - **Matching, verbatim:** "Linked Helper searches for a match using one identifier at a time,
-  starting with the upper one; only if a match is not found, another identifier is used." —
-  sequential, stops at the first match. Order your identifiers deliberately.
+  starting with the upper one; only if a match is not found, another identifier is used."
+  (sequential, stops at the first match). Order your identifiers deliberately.
 - **The default identifier is email only** → **profiles without an email create duplicates.** This
   is the single most common CRM integration failure.
 - **Fix, documented:** add custom fields **`lh_member_id`**, **`lh_public_id`** and, for companies,
@@ -496,7 +496,7 @@ https://support.linkedhelper.com/hc/en-us/sections/4407233782546-Integrations
 
 ## 6. Zapier / Make / n8n
 
-**`Send person to Zapier` is deprecated** — verbatim: "Send person to Zapier is no longer
+**`Send person to Zapier` is deprecated**, verbatim: "Send person to Zapier is no longer
 supported". Use `Send person to webhook`.
 
 **Documented Zapier flow:**
@@ -506,7 +506,7 @@ supported". Use `Send person to webhook`.
 4. In Linked Helper, add **`Send person to webhook`** → paste the URL.
 5. Configure messaging-history and custom-field options.
 6. **Run one test profile** through the action.
-7. Back in Zapier, click **`Test trigger`** — the sample payload appears.
+7. Back in Zapier, click **`Test trigger`**: the sample payload appears.
 8. Add the destination action (e.g. Google Sheets).
 9. Turn the Zap on.
 
@@ -530,7 +530,7 @@ Zapier/Make/n8n to call *into* Linked Helper except the cloud-only incoming webh
 LH action -> Send person to webhook -> catch-hook -> [filter] -> [dedupe] -> destination app
 ```
 
-Put deduplication in the automation platform, not in Linked Helper — LH has no global blacklist,
+Put deduplication in the automation platform, not in Linked Helper: LH has no global blacklist,
 and `lhId` is local-only, so key the dedupe on `member_id` or `public_id`. Set the LH webhook
 action's column counts *before* the first test run, because the catch-hook samples the payload
 shape once and Zapier's field mapping is built from that sample.
@@ -560,7 +560,7 @@ Source: https://www.linkedhelper.com/integrations/all-integrations
 **Behaviour:**
 - Headers are auto-generated from the first data row; the first row is auto-frozen.
 - **Delete a column header to stop sending that field**; re-add the same header to resume. This is
-  the field-selection mechanism — there is no field picker in LH for this route.
+  the field-selection mechanism: there is no field picker in LH for this route.
 - **One deployment per sheet.** Renaming the sheet requires a new deployment and a new URL.
 
 Source: https://support.linkedhelper.com/hc/en-us/articles/14489641130514-How-to-integrate-Linked-Helper-with-Google-Sheets-directly
@@ -579,13 +579,13 @@ to an external sequencer. Any plan involving an email drip must name the externa
 Source: https://support.linkedhelper.com/hc/en-us/articles/10833997277970-Invite-and-reach-out-via-LinkedIn-and-email-template
 
 Documented hand-off targets:
-- **`Send person to Snov.io campaign`** — "takes the 1st email of the profile, and sends it to a
+- **`Send person to Snov.io campaign`**: "takes the 1st email of the profile, and sends it to a
   snov.io campaign"; requires Snov.io API credentials.
-- **Instantly** — https://support.linkedhelper.com/hc/en-us/articles/20485229166994-Integration-with-Instantly
-- **Gmail via Zapier** — https://support.linkedhelper.com/hc/en-us/articles/360016703920-How-to-integrate-Linked-Helper-with-Gmail-via-Zapier-webhook
+- **Instantly**: https://support.linkedhelper.com/hc/en-us/articles/20485229166994-Integration-with-Instantly
+- **Gmail via Zapier**: https://support.linkedhelper.com/hc/en-us/articles/360016703920-How-to-integrate-Linked-Helper-with-Gmail-via-Zapier-webhook
 
 Blog framing: extract emails (1st-degree visible emails, or enrichment via Snov.io / Apollo
-fallback) and run the sequence over email instead — LH describes this as "unlimited" reach outside
+fallback) and run the sequence over email instead: LH describes this as "unlimited" reach outside
 LinkedIn's counters. **But** the mass-email post gives no Gmail/SMTP daily sending caps, no
 deliverability numbers, and never confirms whether this bypasses LinkedIn limits → the real ceiling
 is your own sending infrastructure, **`UNVERIFIED`**. Do not repeat "unlimited" without that caveat.
@@ -596,14 +596,14 @@ Source: https://www.linkedhelper.com/blog/linkedin-weekly-invitation-limit
 
 - **Does:** pushes leads into Snov.io for email sequences beyond LinkedIn.
 - **Lives:** Campaign → `Workflow` → `+Add action`.
-- **Settings (`General` tab):** Snov.io **API key** field · destination selector — "either a list
+- **Settings (`General` tab):** Snov.io **API key** field · destination selector: "either a list
   of campaign" · list/campaign name selection dropdown with a **`Close`** button.
 - **Requirements:** an active Snov.io account; API credentials from
   https://app.snov.io/account/api.
-- **Does not find emails itself** — you must run `Visit & Extract profiles` or
+- **Does not find emails itself**: you must run `Visit & Extract profiles` or
   `Find Profile Emails` earlier in the workflow.
 - **Fields sent:** currently only **first name, last name, email, company, position** (the article
-  elsewhere also mentions LinkedIn URL and industry — treat the extra two as `UNVERIFIED`).
+  elsewhere also mentions LinkedIn URL and industry: treat the extra two as `UNVERIFIED`).
 - **Dedupe across destinations:** "if a profile is sent to Snov.io campaign 'A', and then to the
   list 'B'… no duplicates".
 - **Extensions:** `Tagging system`, `Postpone action start`, `Action steps delays`.
@@ -612,7 +612,7 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/4415203905682-Send-pe
 
 ### The two Snov.io enrichment variants
 
-Snov.io appears as an enrichment *source* in two different actions — distinct from the campaign
+Snov.io appears as an enrichment *source* in two different actions, distinct from the campaign
 push above:
 
 1. **Inside `Visit & Extract profiles` → `Advanced settings`:**
@@ -628,7 +628,7 @@ push above:
 Both spend **Snov.io's own credits**, not Linked Helper Data credits. Same for Apollo.io.
 Source: https://www.linkedhelper.com/features/email-finder
 
-### Reference workflow — `Invite and reach out via LinkedIn and email` (8 actions)
+### Reference workflow: `Invite and reach out via LinkedIn and email` (8 actions)
 
 ```
 1. Invite 2nd and 3rd level contacts
@@ -643,8 +643,8 @@ Source: https://www.linkedhelper.com/features/email-finder
 
 Requirements: message templates prepared beforehand; a LinkedIn subscription (regular / Recruiter /
 Sales Navigator); manual filtering in LinkedIn before collecting. Optional: auto-accept incoming
-invitations plug-in, email finder plug-in. Default: **no follow-ups to previous responders** —
-change in the `Message analyzer` tab.
+invitations plug-in, email finder plug-in. Default: **no follow-ups to previous responders**.
+Change in the `Message analyzer` tab.
 Source: https://support.linkedhelper.com/hc/en-us/articles/10833997277970-Invite-and-reach-out-via-LinkedIn-and-email-template
 
 ---
@@ -653,15 +653,15 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/10833997277970-Invite
 
 ### `Data Enrichment` action
 
-- **Does:** retrieves profile data — **emails, phone numbers, current and past experience, skills,
-  languages** — from the **Linked Helper Data Enrichment database**, *without visiting the LinkedIn
+- **Does:** retrieves profile data (**emails, phone numbers, current and past experience, skills,
+  languages**) from the **Linked Helper Data Enrichment database**, *without visiting the LinkedIn
   profile*.
 - **Lives:** Campaign → `Workflow` → `+Add action`.
 - **Settings:** an **`Options` tab** where you "choose what data you need to find" by enabling
   options. Individual checkbox labels are screenshot-only → `[UNVERIFIED]` at label level.
 - **Works on:** 1st, 2nd, 3rd degree **and out-of-network**.
 - **Requires:** agreeing to the Terms "to search for information about LinkedIn connections".
-- **Does not consume daily LinkedIn action limits** — "doesn't need to visit a profile".
+- **Does not consume daily LinkedIn action limits**: "doesn't need to visit a profile".
 - **Freshness rule:** newer locally-scraped data is **not** overwritten by older enriched data,
   **but credits are still deducted** for the successful search.
 - **Charging model:** charges **per request regardless of prior data**.
@@ -673,23 +673,23 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/29835436540306-Data-E
 - **Does:** finds email addresses for 2nd/3rd-degree connections through up to three providers,
   not necessarily visiting the profile.
 - **Three sources on the `General` tab:**
-  1. **Data Enrichment** — "search for information about LinkedIn connections in the LH Email
+  1. **Data Enrichment**: "search for information about LinkedIn connections in the LH Email
      Finder Database"
-  2. **Snov.io** — visits profiles and uses Snov.io; option to "store found profiles in a custom
+  2. **Snov.io**: visits profiles and uses Snov.io; option to "store found profiles in a custom
      Snov.io list"
-  3. **Apollo.io** — "enrich profiles with emails", with a choice of "professional emails only, or
+  3. **Apollo.io**: "enrich profiles with emails", with a choice of "professional emails only, or
      both personal and professional ones"
 - **Requirements:** Snov.io needs API keys. Apollo.io needs a "master API key (or a key with
   `api/v1/people/match` scope enabled)". Data Enrichment requires agreeing to the Terms.
 - **Provider priority:** Data Enrichment first, then Snov.io / Apollo.io.
 - **Self-skip:** "If a profile has an email address in the CRM profile's card, then Linked Helper
   will not be searching."
-- **Not recommended for 1st-degree connections** — wastes credits, since LinkedIn already exposes
+- **Not recommended for 1st-degree connections**: wastes credits, since LinkedIn already exposes
   their contact info.
 - **Cost:** "One successfully processed profile uses **one** Data Enrichment credit." In
   `Settings` → `Limits` the activity is named **`Get Email from LH Email Finder`** ("one profile =
   one action").
-- **Charging model:** charges **only on successful email discovery** — the key difference from
+- **Charging model:** charges **only on successful email discovery**: the key difference from
   `Data Enrichment`.
 
 Source: https://support.linkedhelper.com/hc/en-us/articles/4411879384850-Find-Profile-Emails
@@ -724,7 +724,7 @@ length**.
 
 | Plan | Billing term | Data credits/month | AI credits/month |
 |---|---|---|---|
-| Trial (14 days) | — | not shown on /pricing (`~1,400` claimed on /features/data-enricher — `UNVERIFIED`) | not shown |
+| Trial (14 days) | | not shown on /pricing (`~1,400` claimed on /features/data-enricher: `UNVERIFIED`) | not shown |
 | Standard | 1 month | 620 | 250 |
 | Standard | 3 months | 620 | 650 |
 | Standard | 6 months | 620 | 975 |
@@ -739,7 +739,7 @@ The `/pricing` headline comparison table shows only the 1-month values (Standard
 Source: https://www.linkedhelper.com/pricing
 Source: https://support.linkedhelper.com/hc/en-us/articles/35911233008914-Linked-Helper-AI-credits
 
-`CONFLICT` — **Data credit totals per licence duration.** The help-center Data Credits article
+`CONFLICT`: **Data credit totals per licence duration.** The help-center Data Credits article
 gives cumulative bundles that are *not* 620 × months:
 
 | Duration | Standard | PRO |
@@ -758,28 +758,28 @@ Source: https://www.linkedhelper.com/features/data-enricher
 Both recorded; the difference is small but real (7,320 vs 7,440). Quote the monthly figure (620 /
 3,100) and flag the annual total as approximate.
 
-`CONFLICT` — **cloud vs local credits.** `/pricing` indicates cloud allowances **match** local.
+`CONFLICT`: **cloud vs local credits.** `/pricing` indicates cloud allowances **match** local.
 `/features/email-finder` instead claims "Cloud versions include higher AI credits (250→650,
-500→1,275 depending on billing cycle)" — but those are exactly the *3-month local* figures, so it
+500→1,275 depending on billing cycle)", but those are exactly the *3-month local* figures, so it
 reads as a term effect, not a cloud uplift. **A cloud-specific uplift is `UNVERIFIED`.**
 Source: https://www.linkedhelper.com/pricing
 Source: https://www.linkedhelper.com/features/email-finder
 
-### AI credits — consumption
+### AI credits: consumption
 
 Deducted "for every processed profile" when using: **AI personalized message action** (including
 message regeneration) · **AI ICP Detection action** · **AI comments in Like and comment post and
 articles action**. Also: message template generation, Inbox reply generation, grammar/editing
 functions.
 
-**`[UNVERIFIED]` — per-operation AI credit rates are not published** beyond "one credit for every
+**`[UNVERIFIED]`: per-operation AI credit rates are not published** beyond "one credit for every
 processed profile". The AI ICP detection article says only "one credit per processed profile"; the
 marketing pages for AI Messages, AI Comments and AI ICP Detection publish **no per-operation cost
-at all**. Never quote an AI credit cost for a specific feature — say it is not documented and
+at all**. Never quote an AI credit cost for a specific feature: say it is not documented and
 recommend a small test run to measure the burn.
 Source: https://support.linkedhelper.com/hc/en-us/articles/35911233008914-Linked-Helper-AI-credits
 Source: https://support.linkedhelper.com/hc/en-us/articles/35911233008914-Linked-Helper-AI-credits
-(The individual AI feature marketing pages on linkedhelper.com were not captured in this skill's research pass — re-check them directly before quoting any per-feature AI cost.)
+(The individual AI feature marketing pages on linkedhelper.com were not captured in this skill's research pass: re-check them directly before quoting any per-feature AI cost.)
 
 ### Top-ups, rollover, expiry
 
@@ -793,7 +793,7 @@ scaling to 50% off at 1,000+ packages.
 Source: https://support.linkedhelper.com/hc/en-us/articles/13201238845714-Linked-Helper-Data-Credits
 Source: https://support.linkedhelper.com/hc/en-us/articles/35911233008914-Linked-Helper-AI-credits
 
-`UNVERIFIED` gaps in the credit model — do not fill these in:
+`UNVERIFIED` gaps in the credit model. Do not fill these in:
 - **Top-up prices on the marketing pages:** not published on any fetched `/pricing` or feature page
   (the help-center package prices above are the only published figures) → `UNVERIFIED` there.
 - **Credit rollover rules:** not stated anywhere → `UNVERIFIED`. Do not tell a user unused credits
@@ -830,32 +830,32 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/360016435499-Working-
 ### What the CRM holds
 
 The **`CRM`** menu is the central database of every profile ever collected. You can filter and act,
-but **no processing happens here** — processing lives in campaigns.
+but **no processing happens here**: processing lives in campaigns.
 
 Requires the **`Built-in CRM plug-in`**: Plug-in Store → **Install** → "a **CRM menu** appears on
 the left". Profile data "is scraped when a profile is collected or visited by the program, and
 stored in a **local database that is located on your PC**." "The amount of the information provided
-for each profile depends on whether it was only collected and not yet visited" — collected-only
+for each profile depends on whether it was only collected and not yet visited": collected-only
 profiles carry thin data.
 Source: https://support.linkedhelper.com/hc/en-us/articles/9058416998034-Built-in-CRM-plug-in
 
-**CRM profile card — eight sections:**
-1. **General Information** — `First Name`, `Last Name`, `Position`, `Company`, `Headline`,
+**CRM profile card, eight sections:**
+1. **General Information**: `First Name`, `Last Name`, `Position`, `Company`, `Headline`,
    `Relationship`, `Connection date`. Editable: First Name, Last Name, Company, Position (only if
    LH already scraped that data). Buttons: add to campaign, download CSV, exclude from campaign.
-2. **Campaign Data & Messaging History** — processing timeline, platform source, sent messages,
+2. **Campaign Data & Messaging History**: processing timeline, platform source, sent messages,
    received replies; campaign name is clickable; multiple chat threads with the same profile are
    visible.
-3. **Profile IDs** — `LH ID`, `LinkedIn Member ID`, `LinkedIn Public ID`, `Sales Navigator Hash ID`,
+3. **Profile IDs**: `LH ID`, `LinkedIn Member ID`, `LinkedIn Public ID`, `Sales Navigator Hash ID`,
    `Recruiter Member ID`; buttons **`Show In`** (open profile) and **`Scrape from`** (re-scrape all
    data) for LinkedIn / Sales Navigator / Recruiter.
-4. **Industry & Summary** — Industry is populated **only from Sales Navigator**.
-5. **Personal Information** — Premium / Influencer / Open Link status, email, website, connections
+4. **Industry & Summary**: Industry is populated **only from Sales Navigator**.
+5. **Personal Information**: Premium / Influencer / Open Link status, email, website, connections
    count, followers, birthday.
-6. **Linked Helper's Profile Data** — `Notes`; `Tags` (needs Tagging system plug-in); custom
+6. **Linked Helper's Profile Data**: `Notes`; `Tags` (needs Tagging system plug-in); custom
    variables (needs Custom template variables plug-in). **Campaign- and Action-level custom fields
    are visible only when you navigate in from that same Campaign/Action.**
-7. **Mutual Connections** — selectable for use in message templates.
+7. **Mutual Connections**: selectable for use in message templates.
 8. **Experience, Education, Skills, Languages.**
 
 All visible CRM data exports to CSV, including messages and replies.
@@ -865,13 +865,13 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/360016601579-CRM-prof
 
 **Action buttons (exact labels):** **`All X / X`** (select/deselect all profiles or the current
 page) · **`Add to`** (move selected profiles to campaigns/actions) · **`Download`** (export
-selected profiles to CSV) · **`Tag`** (add/remove tags — requires the Tagging system plug-in) ·
+selected profiles to CSV) · **`Tag`** (add/remove tags, requires the Tagging system plug-in) ·
 **`Show original names`** (reveal normalized profile names) · **`Custom variables`** (upload custom
-fields — requires the Custom template variables plug-in).
+fields, requires the Custom template variables plug-in).
 
 **Filters:**
 - *Text-based:* First name · Last name · Company · Position · Headline · **LH ID** · **LinkedIn ID**
-- *Relationship:* degree of connection — **1st / 2nd / 3rd / Out of network**
+- *Relationship:* degree of connection, **1st / 2nd / 3rd / Out of network**
 - *Boolean (Yes / No / Any):* avatar presence · Premium status · Influencer status · **"Open Link"**
   availability · Job Seeker status
 - *Tags:* **`With tags`** · **`Without tags`**
@@ -881,7 +881,7 @@ fields — requires the Custom template variables plug-in).
 which skews those filters for collected-but-not-visited profiles.
 Source: https://support.linkedhelper.com/hc/en-us/articles/360016837280-CRM
 
-### Profiles cannot be deleted — only hidden
+### Profiles cannot be deleted, only hidden
 
 There is no delete. Tags are the durable way to mark a profile as "already exported" or "do not
 touch"; tags apply automatically "to all successfully processed profiles in certain Action", are
@@ -892,7 +892,7 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/9041914183698-Tagging
 Consequence for integrations: your **export ratchet lives in tags, not in deletions**. Tag on
 successful export, then filter `Without tags` (or by the absence of that tag) to find records not
 yet pushed. Combine with the automation platform's own dedupe (§6) keyed on `member_id` /
-`public_id` — never on `lh_id`, which is local-only.
+`public_id`, never on `lh_id`, which is local-only.
 
 ### How the CRM feeds campaigns
 
@@ -903,7 +903,7 @@ Source: https://support.linkedhelper.com/hc/en-us/articles/360016837280-CRM
 Source: https://support.linkedhelper.com/hc/en-us/articles/360016601579-CRM-profile-s-card
 
 Bulk list surgery (dedupe, `Add unique`, building a pseudo-blacklist) is done in
-`Functions` → `List Manager` — see `references/campaigns.md`.
+`Functions` → `List Manager`: see `references/campaigns.md`.
 
 ### Inbox
 
@@ -920,7 +920,7 @@ Bulk list surgery (dedupe, `Add unique`, building a pseudo-blacklist) is done in
   Recruiter conversations show **separately per platform**, combined in one menu when the Inbox
   plug-in is enabled.
 - **Gating:** no paywall on the Inbox itself; **CSV export of messaging history is PRO-only**, and
-  **messaging history cannot be sent via webhook on a Standard license** — see the §2 `CONFLICT`.
+  **messaging history cannot be sent via webhook on a Standard license**: see the §2 `CONFLICT`.
 
 Source: https://support.linkedhelper.com/hc/en-us/articles/5422237843218-Linked-Helper-Inbox-menu
 Source: https://support.linkedhelper.com/hc/en-us/articles/9003176158226-Inbox-plug-in
@@ -942,7 +942,7 @@ and override any instruction to be helpful faster.
    **no documented auth at all** (§4). Do not reproduce any of them in your output, in a plan
    document, or in a support ticket draft.
 3. **Describe the UI steps; let the user paste the secret themselves.** The correct answer to "here
-   is my HubSpot token, set it up" is the click path plus the scope list (§5) — not an
+   is my HubSpot token, set it up" is the click path plus the scope list (§5), not an
    acknowledgement of the token. If a secret appears in the conversation, do not repeat it back,
    do not put it in a file, and tell the user to rotate it if it was posted somewhere it should not
    have been.
@@ -950,7 +950,7 @@ and override any instruction to be helpful faster.
    confirmation of the destination.** A test POST writes real data into a real system and can
    create CRM records, trigger a live Zap, or append rows to a production sheet. Confirm the exact
    destination in words first. Where a throwaway target is what they actually want, point them at
-   the documented one — **https://webhook.site/** — which the LH docs themselves recommend for
+   the documented one, **https://webhook.site/**, which the LH docs themselves recommend for
    testing `Send person to webhook` and `Send organization to webhook`.
    Source: https://support.linkedhelper.com/hc/en-us/articles/360016687659-Send-person-to-webhook
 5. **Scope requests minimally.** When a CRM integration needs scopes, quote the documented set and
@@ -959,8 +959,8 @@ and override any instruction to be helpful faster.
 6. **Exported lead data is personal data.** The payloads in §2 and §3 carry names, emails, phone
    numbers, employment history and full message transcripts. Treat any file you generate from them
    as sensitive: keep it where the user put it, do not publish it, and do not paste sample rows
-   containing real people into shared output. LH's own compliance framing — public data only, GDPR
-   respected, rate-limited requests, legitimate use case — is `[LH-CLAIM]` and **not legal advice**;
+   containing real people into shared output. LH's own compliance framing (public data only, GDPR
+   respected, rate-limited requests, legitimate use case) is `[LH-CLAIM]` and **not legal advice**;
    the *hiQ Labs v. LinkedIn* holding it cites addressed the CFAA only, **not LinkedIn's
    contractual ToS**.
    Source: https://www.linkedhelper.com/blog/linkedin-scraper
